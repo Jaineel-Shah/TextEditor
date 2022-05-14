@@ -1,16 +1,13 @@
 
 import React, {  useState,useRef } from "react";
-import './App.css';
-import Editor from "./Editor"; 
+import './App.css'; 
 import pic from "./images/logo.jpg";
 import io from "socket.io-client";
- // import Chat from './Chat';
+import Chat from './Chat';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Chat1 from './Chat1';
 import JoditEditor from "jodit-react";
-// import { useHistory } from "react-router-dom"
 
-const socket =io.connect("http://localhost:3002");
+const socket =io.connect("http://localhost:3001");
 
 function App() {
   const editor = useRef(null);
@@ -92,20 +89,17 @@ const handleChange = (newContent) => {
 						</table>	
             </div>
  ) : (
- // <Chat socket={socket} username={username} room={room} />
-  //<h1>chat window</h1>
-  <JoditEditor
-  // ref={editor}
- // value={content}
-  config={config}I
- // tabIndex={1} // tabIndex of textarea
-  // onBlur={(newContent) => {
-  //   console.log(newContent);
-  //    setContent(newContent.target.innerHTML);
-  // }}
- // onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-    //   onChange={newContent => {}}
-/>
+
+//If you are uncommenting <JoditEditor> line you will be able to see Rich textbox functionality. currently not implemented all together due to time insuffeicency.
+
+
+ <Chat socket={socket} username={username} room={room} />
+//   <JoditEditor
+//   // ref={editor}
+//   value={content}
+//   config={config}I
+
+// />
 )}
 					</div>
 				</td>
